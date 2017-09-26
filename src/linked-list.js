@@ -6,8 +6,8 @@ class LinkedList {
     }
 
     append(data) {
-    	if(data){
-    		var node = new Node(data);
+		if(data){
+			var node = new Node(data);
 	    	if(this.length == 0){
 	    		this._head = this._tail = node;
 			}
@@ -46,18 +46,19 @@ class LinkedList {
     }
 
     insertAt(index, data) {
-    	var element = this._head;
-    	var length = this.length;
-    	this.length = 0;
-    	delete(this._head,this._tail);
-    	for (var i = 0; i < length; i++){
-    		if(i == index)
-    			this.append(data);
-			else
-    			this.append(element.data);
-    		element = element.data;
-    	}
-    	return this;
+		var element = this._head;
+		var length = this.length;
+		this.length = 0;
+		delete(this._head,this._tail);
+		for (var i = 0; i <= length; i++){
+			if(i == index)
+				this.append(data);
+			else{
+				this.append(element.data);
+				element = element.next;	
+			}
+		}
+		return this;
     }
 
     isEmpty() {
